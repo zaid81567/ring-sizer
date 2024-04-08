@@ -31,7 +31,7 @@ setting_btn.addEventListener("click", (event) => {
   modal_container_el.style.display = "flex";
   const handleClickOnModal = (event) => {
     modal_container_el.style.display = "none";
-    modal_container_el.removeEventListener("click", handleClickOnModal);
+    // modal_container_el.removeEventListener("click", handleClickOnModal);
   };
   modal_container_el.addEventListener("click", handleClickOnModal);
 });
@@ -41,16 +41,19 @@ recalibrate_btn.addEventListener("click", (event) => {
 
   if (localStorage.getItem("mmPerPx")) {
     localStorage.removeItem("mmPerPx");
-
+    console.log("1");
     // reappearing btns and calibration msg
     calib_el.style.backgroundColor = "rgba(255, 0, 0, 0.3)";
     calib_el.classList.remove("no-opacity");
+    calib_el.style.display = "flex";
     btn_el.textContent = "Calibrate Now";
     btn_el.classList.remove("btn-transition");
+    btn_el.style.display = "block";
     mm_per_px = 0.0;
     measurementVal_el_d.textContent = "0.00";
     measurementVal_el_c.textContent = "0.00";
     btn_el.disabled = false;
+    console.log("1");
   }
 });
 
