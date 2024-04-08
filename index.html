@@ -1,25 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <header>
-        <p class="logo">RINGFIT</p>
-    </header>
-    
-    <section class="sizer-section">
-        <div class="sizer-container">
-            <div class="ring">
-                <p class="measurement">1.2cm</p>
-            </div>
-        </div>
-    </section>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RingFit</title>
 
-    <div class="slider">
-        <input type="slider">
+    <link rel="stylesheet" href="./styles/style.css">
+    <script src="./scripts/script.js" defer></script>
+  </head>
+  <body>
+    <span class="setting" id="setting"></span>
+    <div class="modal-container" id="modal-container">
+      <div class="modal" id="modal">
+        <a href="https://github.com/zaid81567"><span class="github"></span></a>
+        <p class="version">v 1.0.0</p>
+        <button id="recalibrate-btn">Recalibrate</button>
+      </div>
     </div>
-</body>
+    <header>
+      <p class="logo">RINGFIT</p>
+    </header>
+
+    <section class="sizer-section">
+      <span class="calibiration-msg" id="calibiration-msg"><span class="warning"></span>not calibrated yet</span>
+      <div class="sizer-container">
+        <div class="ring" id="ring">
+          <span class="left">&#8592;</span>
+          <p class="measurement"><span id="measurement-val" class="measurement-val">0.00</span> mm</p>
+          <span class="right">&#8594</span>
+        </div>
+      </div>
+      <button class="calibirate-btn" id="calibirate-btn">Calibrate Now</button>
+    </section>
+    <div class="range-container">
+      <input type="range" min="80" max="130" value="85" id="range"/>
+    </div>
+  </body>
 </html>
