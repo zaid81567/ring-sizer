@@ -101,6 +101,12 @@ header .logo {
     linear-gradient(to bottom, rgba(0, 61, 30, 0.793) 1px, transparent 1px);
 }
 
+.data{
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
 .ring {
   border: 4px rgb(255, 255, 255) solid;
   border-radius: 50%;

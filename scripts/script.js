@@ -7,7 +7,10 @@ const ring_el = document.getElementById("ring");
 const calib_el = document.getElementById("calibiration-msg");
 const btn_el = document.getElementById("calibirate-btn");
 const range_el = document.getElementById("range");
-const measurementVal_el = document.getElementById("measurement-val");
+const measurementVal_el_d = document.getElementById("measurement-val-diameter");
+const measurementVal_el_c = document.getElementById(
+  "measurement-val-circumference"
+);
 const recalibrate_btn = document.getElementById("recalibrate-btn");
 const setting_btn = document.getElementById("setting");
 const modal_container_el = document.getElementById("modal-container");
@@ -45,7 +48,8 @@ recalibrate_btn.addEventListener("click", (event) => {
     btn_el.textContent = "Calibrate Now";
     btn_el.classList.remove("btn-transition");
     mm_per_px = 0.0;
-    measurementVal_el.textContent = "0.00";
+    measurementVal_el_d.textContent = "0.00";
+    measurementVal_el_c.textContent = "0.00";
     btn_el.disabled = false;
   }
 });
@@ -75,7 +79,8 @@ range_el.addEventListener("input", (event) => {
   ring_el.style.width = event.target.value + "px";
 
   if (hasCaliberated) {
-    measurementVal_el.textContent = getRingDiameter();
+    measurementVal_el_d.textContent = getRingDiameter();
+    measurementVal_el_c.textContent = getRingCircumference();
   }
 });
 
@@ -83,5 +88,12 @@ range_el.addEventListener("input", (event) => {
 function getRingDiameter() {
   if (hasCaliberated) {
     return (mm_per_px * (ring_el.clientWidth + 8)).toFixed(2);
+  }
+}
+
+function getRingCircumference() {
+  if (hasCaliberated) {
+    // diameter * pie = circumeference (in mm)
+    return (mm_per_px * (ring_el.clientWidth + 8) * 3.14).toFixed(2);
   }
 }
